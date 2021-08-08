@@ -1,0 +1,60 @@
+<section class="user-config">
+	<label class="field">
+		<span class="field-caption"><strong>User name *</strong></span>
+		<input type="text" [(ngModel)]="userName">
+	</label>
+	<label class="field">
+		<span class="field-caption">Room name</span>
+		<input type="text" [(ngModel)]="roomName">
+	</label>
+	<label class="field">
+		<span class="field-caption">Show eyeson logo</span>
+		<input type="checkbox" [(ngModel)]="showEyesOnLogo">
+	</label>
+	<label class="field">
+		<span class="field-caption">Recording available</span>
+		<input type="checkbox" [(ngModel)]="recordingAvailable">
+	</label>
+	<label class="field">
+		<span class="field-caption">Broadcasting available</span>
+		<input type="checkbox" [(ngModel)]="broadcastingAvailable">
+	</label>
+	<label class="field">
+		<span class="field-caption">Locale (en / de / fr)</span>
+		<input type="text" [(ngModel)]="locale">
+	</label>
+	<label class="field">
+		<span class="field-caption">Url to logo</span>
+		<input type="text" [(ngModel)]="urlToLogo">
+	</label>
+</section>
+
+<section class="rooms">
+	<h3>Chat Rooms</h3>
+	<div class="rooms-wrapper" *ngIf="(chatRooms$ | async) as chatRooms">
+		<div class="rooms-container" *ngIf="!loading.rooms; else loadingTemplate">
+			<div class="room-panel" *ngFor="let chatRoom of chatRooms">
+				<div class="room-info">
+					<span class="room-info-room-name">{{ chatRoom.room?.name }}</span>
+					<span class="room-info-room-id">{{ chatRoom.room?.id }}</span>
+				</div>
+				<div class="creator-info">
+					<span class="room-info-creator">Creator:</span>
+					<span class="room-info-creator-name">{{ chatRoom.user?.name }}</span>
+				</div>
+				<button class="join-btn" (click)="joinRoom(chatRoom)">Join</button>
+			</div>
+		</div>
+	</div>
+	<div class="room-actions">
+		<button class="room-action" (click)="createRoom()">Create room</button>
+		<button class="room-action" (click)="refreshList()">Refresh rooms</button>
+		<button class="room-action" (click)="clearList()">Clear rooms</button>
+	</div>
+</section>
+
+<ng-template #loadingTemplate>
+	<div class="loading-container">
+		<span class="loading">Loading...</span>
+	</div>
+</ng-template>

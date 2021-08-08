@@ -1,0 +1,8 @@
+<form>
+	<label class="field">
+		<span class="field-label">Please, enter your favourite application name</span>
+		<input class="field-input" type="text" name="applicationName" [(ngModel)]="favouriteApplicationName">
+	</label>
+	<span *ngIf="error" class="text-error">{{ error }}</span>
+	<button class="confirm-button" (click)="setFavouriteApplicationName()">Confirm</button>
+</form>

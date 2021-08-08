@@ -1,0 +1,63 @@
+section.user-config {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	max-width: 800px;
+}
+
+label.field {
+	padding: 12px;
+}
+
+span.field-caption {
+	margin-right: 8px;
+}
+
+section.rooms {
+	display: grid;
+	margin-top: 48px;
+}
+
+.rooms-wrapper {
+	padding: 12px 0;
+}
+
+.rooms-container {
+	display: flex;
+	padding: 24px;
+}
+
+.room-panel {
+	padding: 12px;
+	border: solid 1px #cecece;
+	border-radius: 4px;
+	margin-right: 8px;
+	display: flex;
+	flex-direction: column;
+}
+
+.room-info {
+	display: flex;
+	flex-direction: column;
+}
+
+button.room-action {
+	min-width: 200px;
+	margin-right: 12px;
+}
+
+.creator-info {
+	margin-top: 8px;
+}
+
+button.join-btn {
+	margin-top:  8px;
+}
+
+span.room-info-room-id {
+	color: gray;
+	font-size: 12px;
+}
+
+.loading-container {
+	padding: 0 24px 24px 24px;
+}
